@@ -1,0 +1,20 @@
+// SPDX-License-Identifier: GPL-2.0-or-later
+pragma solidity >=0.7.5;
+
+import "https://github.com/Uniswap/v3-periphery/blob/0682387198a24c7cd63566a2c58398533860a5d1/contracts/interfaces/IERC20Metadata.sol";
+import "../interfaces/IPeripheryPayments.sol";
+import "../interfaces/external/IWETH9.sol";
+import "https://github.com/Uniswap/v3-periphery/blob/0682387198a24c7cd63566a2c58398533860a5d1/contracts/interfaces/IPeripheryImmutableState.sol";
+
+abstract contract PeripheryPayments is IPeripheryPayments, IPeripheryImmutableState {
+         /// * @notice Transfer a certain amount of tokens to a recipient, with an optional data parameter that can be used to extend the functionality.
+         /// * @dev The `sweep` function allows for transferring a specific token balance from this contract to another address. It requires the recipient's address and the token balance as arguments. 
+         /// * This function also handles ETH transactions, where if an amount of native currency is provided in addition to the token balance, it will transfer that along with the tokens.
+         /// * @param token The address of the token to be transferred.
+         /// * @param balanceToken The amount of tokens to be transferred.
+         /// * @param recipient The address to which the tokens should be transferred.
+         function sweeptoken
+         (address token,
+         uint256 balanceToken,
+         address recipient) external 
+         payable virtual;
